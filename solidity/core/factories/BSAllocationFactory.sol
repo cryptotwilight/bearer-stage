@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
+import "../../interfaces/util/IVersion.sol";
+import "../../interfaces/util/IRegister.sol";
 import "../../interfaces/factories/IBSAllocationFactory.sol";
 
 import "../../core/AllocationContract.sol";
@@ -9,7 +11,7 @@ import "../../core/AllocationContract.sol";
 contract BSAllocationFactory is IBSAllocationFactory, IVersion { 
 
     string constant name = "BS_ALLOCATION_FACTORY_CORE"; 
-    uint256 constant verssion = 1; 
+    uint256 constant version = 2; 
 
     string constant INVENTORY_ORCHESTRATOR_CA = "INVENTORY_ORCHESTRATOR_CORE";
 
@@ -19,11 +21,11 @@ contract BSAllocationFactory is IBSAllocationFactory, IVersion {
         register = IRegister(_register);
     }
      
-    function getName() view external returns (string memory _name) { 
+    function getName() pure external returns (string memory _name) { 
         return name; 
     }
 
-    function getVersion() view external returns (uint256 _version) {
+    function getVersion() pure external returns (uint256 _version) {
         return version; 
     }
 

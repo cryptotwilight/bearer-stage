@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
@@ -52,12 +52,14 @@ contract AllocationContract is IAllocation {
     function executeAllocation(AllocationRequest memory _allocationRequest) payable external returns (Allocation memory _allocation){
         require(!executed, "already executed");
         // request and pay for an allocation from the bearer token contract
+        uint256 day_ = 24*60*60; 
         InventoryRequest memory inventoryRequest_ = InventoryRequest({
 
                                                                         id          : getIndex(),
                                                                         startDate   : _allocationRequest.startDate,
-                                                                        endDate     : _allocationRequest.endDate,
-                                                                        assetType   : _allocationRequest.assetType 
+                                                                        daysForward : (_allocationRequest.endDate -_allocationRequest.startDate) / day_, 
+                                                                        assetType   : _allocationRequest.assetType, 
+                                                                        maxUnitsPerDay : _allocationRequest.maxUnitsPerDay
                                                                     });
                                                                     // secure the inventory
         IBearerTokenInventory inventory_ = IBearerTokenInventory(_allocationRequest.bearerTokenContract);

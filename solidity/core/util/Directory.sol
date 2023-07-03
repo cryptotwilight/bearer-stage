@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 import "../../interfaces/util/IRegister.sol";
 import "../../interfaces/util/IVersion.sol";
@@ -12,7 +12,7 @@ contract Directory is IDirectory, IVersion {
     IRegister register; 
 
     string name; 
-    uint256 constant version = 1; 
+    uint256 constant version = 2; 
 
     mapping(string=>string[]) typesByName; 
     mapping(string=>mapping(string=>address)) addressByTypeByName;

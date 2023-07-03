@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 import "../../interfaces/util/IVersion.sol";
 import "../../interfaces/util/IRegister.sol";
@@ -8,7 +8,7 @@ import "../../interfaces/util/IRegister.sol";
 contract Register is IRegister, IVersion { 
 
     string constant name = "REGISTER";
-    uint256 constant version = 1; 
+    uint256 constant version = 2; 
 
 
     address admin; 
