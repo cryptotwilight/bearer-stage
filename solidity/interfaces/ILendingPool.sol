@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
-// version 1
+// version 2
 
 struct LendingTerms {
 
@@ -11,6 +11,7 @@ struct LendingTerms {
     uint256 maxFunding; 
     uint256 minFunding; 
     uint256 minPerformance; 
+    uint256 lendingRate; 
 
 }
 
@@ -21,6 +22,16 @@ struct BondedLoanRequest {
     uint256 startDate; 
     uint256 endDate; 
     uint256 loanAmount;
+}
+
+
+struct BondedLoan { 
+    uint256 id; 
+    uint256 bondId; 
+    uint256 loanId; 
+    uint256 startDate; 
+    uint256 endDate; 
+    uint256 liquidationFactor; 
 }
 
 struct Loan { 

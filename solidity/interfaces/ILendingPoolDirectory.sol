@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
-
-import "../interfaces/util/IDirectory.sol";
+pragma solidity ^0.8.19;
 
 // version 1
+import "../interfaces/util/IDirectory.sol";
 
 interface ILendingPoolDirectory is IDirectory { 
 

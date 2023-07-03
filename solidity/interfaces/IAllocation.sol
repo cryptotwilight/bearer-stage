@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
-// version 1
+// version 2
 
 struct Allocation { 
     AllocationRequest request; 
@@ -15,6 +15,7 @@ struct AllocationRequest {
     uint256 startDate; 
     uint256 endDate; 
     string assetType;
+    uint256 maxUnitsPerDay; 
     address bearerTokenContract;  
     uint256 fundedAmount; 
     address paymentToken; 

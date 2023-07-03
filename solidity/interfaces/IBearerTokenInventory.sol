@@ -1,20 +1,21 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
-// version 1
+// version 2
 
 struct InventoryAvailability{
-    uint256 startDate; 
-    uint256 endDate; 
-    AssetType assetType; 
+    uint256 date; 
+    AssetType assetType;
+    uint256 availableUnits;  
 }
 
 struct InventoryRequest{
     uint256 id; 
     uint256 startDate; 
-    uint256 endDate; 
+    uint256 daysForward; 
     string assetType; 
+    uint256 maxUnitsPerDay; 
 }
 
 struct DeliveredInventory { 
@@ -22,6 +23,9 @@ struct DeliveredInventory {
     InventoryRequest request; 
     address bearerTokenContract; 
     uint256 [] transferredIds; 
+    address deliveredTo;
+    uint256 deliveryDate; 
+    uint256 count; 
 }
 
 struct BearerToken{ 
@@ -42,6 +46,7 @@ struct BearerTokenInventoryConfiguration {
     uint256 startDate; 
     uint256 endDate; 
     address paymentToken; 
+    uint256 maxDaysForward; 
 }
 
 struct AssetType {
@@ -51,6 +56,7 @@ struct AssetType {
     uint256 unitRecommendedPrice; 
     uint256 issuerId;
     uint256 capacity; 
+    uint256 unitCount; 
 }
 
 interface IBearerTokenInventory { 

@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.19;
 
 // version 1
 
@@ -14,6 +14,7 @@ struct BondedParameters{
     string assetType;
     uint256 startDate; 
     uint256 endDate; 
+    uint256 maxUnitsPerDay; 
     address paymentToken; 
 }
 
